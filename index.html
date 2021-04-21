@@ -17,7 +17,10 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     
     
     <style>
-
+        body {
+            display: block;
+        background-color: rgb(231, 220, 231);
+        }
     </style>
 
    </head>
@@ -76,13 +79,26 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     parentUl.append(newTaskToList)
     }
 
-    const getTasksAsArray = function() {
-        addNewTask()
-        let arrayOfTasks = document.querySelectorAll('#myTaskList li')
-        console.log(arrayOfTasks)
-    
-        
+    function getTasksAsArray() {
+        let arrayOfTasks = []
+        for (let child of list.children) {
+            arrayOfTasks.push(child.innerHTML)
+        }        
+        return arrayOfTasks  
     }
+        
+  const colorPicker = document.querySelector("#colorPicker")
+  function changeTaskBackgroundColor() {
+    console.log(colorPicker.value)          
+    for (let child of list.children) {
+        console.log(child)
+        child.style.backgroundColor = colorPicker.value
+    }  
+  }
+window.onload = function() {
+    colorPicker.addEventListener("input", changeTaskBackgroundColor)
+}
+
     /* 
         EXERCISE 2:   
        Create a CSS class for the task list with a diverse background
