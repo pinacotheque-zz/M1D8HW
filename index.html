@@ -35,7 +35,9 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     <input type="button" value="Add new Task" onclick="addNewTask()" />  
 
   
-    <ul id="myTaskList"></ul>
+    <ul id="myTaskList">
+
+    </ul>
 
     <button onclick="removeLast()">Remove last task</button>
     
@@ -75,9 +77,10 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     }
 
     const getTasksAsArray = function() {
-        let arrayOfTasks = document.getElementById('myTaskList li')
-       
-           
+        addNewTask()
+        let arrayOfTasks = document.querySelectorAll('#myTaskList li')
+        console.log(arrayOfTasks)
+    
         
     }
     /* 
